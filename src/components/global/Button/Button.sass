@@ -1,0 +1,56 @@
+@use '../../../styles/_variables' as var
+    
+.button
+    display: inline-flex
+    align-items: center
+    justify-content: center
+    gap: 0.5rem
+    border: none
+    border-radius: 12px
+    font-weight: 600
+    cursor: pointer
+    transition: all 0.2s ease
+    font-family: inherit
+
+    // sizes
+    &--small
+        padding: 0.5rem 1rem
+        font-size: 0.875rem
+
+    &--medium
+        padding: 0.75rem 1.5rem
+        font-size: 1rem
+
+    &--large
+        padding: 1rem 2rem
+        font-size: 1.125rem
+
+    // variants
+    &--primary
+        background-color: var.$color-button-background
+        color: var.$color-button-text
+        &:hover:not(:disabled)
+            background-color: var.$color-button-background
+
+        
+    &--secondary
+        background-color: var.$color-nav-button-background
+        color: var.$color-nav-button-text-inactive
+        &:hover:not(:disabled)
+            color: var.$color-nav-button-text-active    
+
+    //Modifiers
+    &--full-width
+            width: 100%
+
+        &:disabled
+            opacity: 0.5
+            cursor: not-allowed
+
+    //Elements
+    &__icon
+        display: flex
+        align-items: center
+
+    &__label
+        display: inline-block
