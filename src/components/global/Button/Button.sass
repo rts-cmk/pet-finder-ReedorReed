@@ -4,17 +4,16 @@
     display: inline-flex
     align-items: center
     justify-content: center
-    gap: 0.5rem
     border: none
-    border-radius: 12px
+    border-radius: 32px
     font-weight: 600
     cursor: pointer
     transition: all 0.2s ease
-    font-family: inherit
+    font-family: 'Lato', inherit
 
     // sizes
     &--small
-        padding: 0.5rem 1rem
+        padding: 0.5rem 0.8rem
         font-size: 0.875rem
 
     &--medium
@@ -22,30 +21,23 @@
         font-size: 1rem
 
     &--large
-        padding: 1rem 2rem
-        font-size: 1.125rem
+        padding: 0.8rem 2rem
+        font-size: 1rem
 
     // variants
     &--primary
         background-color: var.$color-button-background
         color: var.$color-button-text
-        &:hover:not(:disabled)
-            background-color: var.$color-button-background
+
 
         
     &--secondary
         background-color: var.$color-nav-button-background
-        color: var.$color-nav-button-text-inactive
-        &:hover:not(:disabled)
-            color: var.$color-nav-button-text-active    
+        color: var.$color-nav-button-text-active 
 
     //Modifiers
     &--full-width
             width: 100%
-
-        &:disabled
-            opacity: 0.5
-            cursor: not-allowed
 
     //Elements
     &__icon

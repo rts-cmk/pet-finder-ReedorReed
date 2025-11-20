@@ -1,6 +1,6 @@
-export default async function petLoader() {
+export default async function userLoader() {
 	try {
-		const response = await fetch(`http://localhost:4000/dogs`);
+		const response = await fetch(`http://localhost:4000/user`);
 
 		if (!response.ok) {
 			throw new Error(`HTTP error! status: ${response.status}`);

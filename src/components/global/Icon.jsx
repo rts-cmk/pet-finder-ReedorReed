@@ -3,7 +3,7 @@ import {
 	IoHome,
 	IoHomeOutline,
 	IoChatbubbleEllipses,
-	IoChatbubbleEllipsesOutline,
+	IoChatbubbleOutline,
 	IoHeart,
 	IoHeartOutline,
 	IoPerson,
@@ -17,7 +17,6 @@ import {
 	IoPaw,
 	IoPawOutline,
 	IoMale,
-	IoFem,
 	IoFemale
 } from 'react-icons/io5';
 
@@ -26,15 +25,15 @@ const iconMap = {
 	home: IoHome,
 	homeOutline: IoHomeOutline,
 	messages: IoChatbubbleEllipses,
-	messagesOutline: IoChatbubbleEllipsesOutline,
+	messagesOutline: IoChatbubbleOutline,
 	heart: IoHeart,
 	heartOutline: IoHeartOutline,
 	profile: IoPerson,
 	profileOutline: IoPersonOutline,
 	notification: IoNotifications,
 	notificationOutline: IoNotificationsOutline,
-	locationIcon: IoLocation,
-	locationIconOutline: IoLocationOutline,
+	location: IoLocation,
+	locationOutline: IoLocationOutline,
 	chevronDown: IoChevronDown,
 	arrowBack: IoArrowBack,
 	paw: IoPaw,
@@ -47,7 +46,7 @@ export default function Icon({
 	name,
 	size = 24,
 	color = 'currentColor',
-	classname = ''
+	className = ''
 }) {
 	const IconComponent = iconMap[name];
 
@@ -55,5 +54,5 @@ export default function Icon({
 		console.warn(`Icon "${name}" not found in iconMap`);
 		return null;
 	}
-	return <IconComponent size={size} color={color} classname={classname} />;
+	return <IconComponent size={size} color={color} className={className} />;
 }

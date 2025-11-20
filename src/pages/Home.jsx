@@ -1,11 +1,16 @@
 import React from 'react';
-import petLoader from '../loaders/petLoader';
 import { useLoaderData } from 'react-router';
+import OnboardingScreen from '../components/onboarding/OnboardingScreen';
+import Header from '../components/navigation/Header';
+import NavButton from '../components/navigation/NavButton';
 
 export default function Home() {
-	const pets = useLoaderData();
+	const { pets, user } = useLoaderData();
 
-	console.log(pets);
-
-	return <div>Home</div>;
+	return (
+		<section>
+			<Header />
+			<NavButton />
+		</section>
+	);
 }

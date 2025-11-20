@@ -7,7 +7,6 @@ export default function Button({
 	variant = 'primary',
 	size = 'medium',
 	icon,
-	disabled = false,
 	fullWidth = false,
 	type = 'button'
 }) {
@@ -21,11 +20,7 @@ export default function Button({
 		.join(' ');
 
 	return (
-		<button
-			className={classNames}
-			onClick={onClick}
-			disabled={disabled}
-			type={type}>
+		<button className={classNames} onClick={onClick} type={type}>
 			{icon && <span className="button__icon">{icon}</span>}
 			<span className="button__label">{label}</span>
 		</button>
