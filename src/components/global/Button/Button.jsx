@@ -8,13 +8,15 @@ export default function Button({
 	size = 'medium',
 	icon,
 	fullWidth = false,
-	type = 'button'
+	type = 'button',
+	active = false
 }) {
 	const classNames = [
 		'button',
 		`button--${variant}`,
 		`button--${size}`,
-		fullWidth && 'button--full-width'
+		fullWidth && 'button--full-width',
+		active && 'button--active'
 	]
 		.filter(Boolean)
 		.join(' ');

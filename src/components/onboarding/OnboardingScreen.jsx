@@ -2,8 +2,14 @@ import React from 'react';
 import Button from '../global/Button/Button';
 import animalBackground from '../../assets/animal.svg';
 import '../../styles/_layout.sass';
+import { useNavigate } from 'react-router';
 
 export default function OnboardingScreen() {
+	const navigate = useNavigate();
+
+	function handleBackClick() {
+		navigate('/');
+	}
 	return (
 		<article className="onboarding-container">
 			<figure>
@@ -21,7 +27,7 @@ export default function OnboardingScreen() {
 				</p>
 			</div>
 
-			<Button label="Skip" size="large" fullWidth />
+			<Button label="Skip" size="large" fullWidth onClick={handleBackClick} />
 		</article>
 	);
 }

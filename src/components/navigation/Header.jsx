@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Avatar from '../../components/global/Avatar/Avatar';
 import Badge from '../../components/global/Badge/Badge';
 import Button from '../../components/global/Button/Button';
@@ -8,7 +8,14 @@ import './Header.sass';
 
 export default function Header() {
 	const { user } = useLoaderData();
-	const [isNotificationActive, setIsNotificationActive] = useState(false);
+	const [isNotificationActive, setIsNotificationActive] = useState(() => {
+		const saved = localStorage.getItem('notificationActive');
+		return saved === 'true';
+	});
+
+	useEffect(() => {
+		localStorage.setItem('notificationActive', isNotificationActive);
+	}, [isNotificationActive]);
 
 	function handleNotificationClick() {
 		setIsNotificationActive(!isNotificationActive);

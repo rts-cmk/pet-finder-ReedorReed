@@ -1,13 +1,18 @@
 import React from 'react';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useNavigate } from 'react-router';
 import Button from '../components/global/Button/Button';
 import '../styles/_layout.sass';
 import Badge from '../components/global/Badge/Badge';
 
 export default function PetDetails() {
 	const petDetails = useLoaderData();
+	const navigate = useNavigate();
 
 	console.log(petDetails);
+
+	function handleBackClick() {
+		navigate('/');
+	}
 
 	return (
 		<section>
@@ -41,7 +46,7 @@ export default function PetDetails() {
 				</div>
 				<p>{petDetails.long_description}</p>
 			</article>
-			<Button label="Back" size="large" fullWidth />
+			<Button label="Back" size="large" fullWidth onClick={handleBackClick} />
 		</section>
 	);
 }

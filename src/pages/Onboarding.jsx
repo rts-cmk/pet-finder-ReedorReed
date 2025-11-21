@@ -1,5 +1,10 @@
 import React from 'react';
+import OnboardingScreen from '../components/onboarding/OnboardingScreen';
 
 export default function Onboarding() {
-	return <div>Onboarding</div>;
+	return (
+		<div>
+			<OnboardingScreen />
+		</div>
+	);
 }

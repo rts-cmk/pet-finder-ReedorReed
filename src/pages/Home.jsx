@@ -1,16 +1,25 @@
 import React from 'react';
-import { useLoaderData } from 'react-router';
 import OnboardingScreen from '../components/onboarding/OnboardingScreen';
 import Header from '../components/navigation/Header';
 import NavButton from '../components/navigation/NavButton';
+import NavBar from '../components/navigation/NavBar';
+import PetCard from '../components/pet/PetCard';
+import CategoryTabs from '../components/tabs/CategoryTabs';
+import '../styles/_layout.sass';
 
 export default function Home() {
-	const { pets, user } = useLoaderData();
-
 	return (
-		<section>
-			<Header />
-			<NavButton />
+		<section className="container">
+			<header>
+				<Header />
+			</header>
+			<div>
+				<CategoryTabs />
+			</div>
+			<article>
+				<PetCard />
+			</article>
+			<NavBar />
 		</section>
 	);
 }

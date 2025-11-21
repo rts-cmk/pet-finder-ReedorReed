@@ -2,7 +2,23 @@
 
 .nav-buttons
     display: flex
+    padding: 1rem
+    width: 100svw
+    justify-content: space-around
 
     .button
         border-radius: 50%
         box-shadow: 8px 8px 20px rgba(170, 170, 204, 1)
+        border-right: 3px solid transparent
+        border-bottom: 3px solid transparent
+        border-top: 0.5px solid transparent
+        border-left: 0.5px solid transparent
+
+        
+        
+        &--active
+            box-shadow: inset 8px 10px 7px -12px rgb(170, 170, 204)
+            border-right: 3px solid rgba(255, 255, 255, 0.3)
+            border-bottom: 3px solid rgba(255, 255, 255, 0.3)
+            border-top: 0.5px solid rgba(255, 255, 255, 0.3)
+            border-left: 0.5px solid rgba(255, 255, 255, 0.3)
