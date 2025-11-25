@@ -2,7 +2,7 @@ export default async function petDetailsLoader({ params }) {
 	const id = params.petId;
 
 	try {
-		const response = await fetch(`http://localhost:4000/dogs/${id}`);
+		const response = await fetch(`http://localhost:4000/pets/${id}`);
 
 		if (!response.ok) {
 			throw new Error(

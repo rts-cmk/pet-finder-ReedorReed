@@ -61,17 +61,25 @@
     background-color: #F5F5FA
     color: #828282
 
-  // Info - Blue
-  &--info
-    background-color: #DBEAFE
-    color: #1E40AF
 
-  // Danger - Red
-  &--danger
-    background-color: #FEE2E2
-    color: #991B1B
+  &--detail
+    background-color: #F5F5F9
+    padding: 0
+    gap: 16px
+    
+    .badge__icon
+      width: 40px
+      height: 40px
+      background-color: #F5F5F9
+      border-radius: 50%
+      box-shadow: 8px 8px 20px rgba(170, 170, 204, 1)
+      font-size: 24px // Controls icon size inside
+      
+    .badge__text
+      color: #4f4f4f
+      font-weight: 400
+      font-size: 15px
 
-  // Optional: Hover effect for clickable badges
   &--clickable
     cursor: pointer
     transition: transform 0.2s, opacity 0.2s
@@ -83,7 +91,6 @@
     &:active
       transform: translateY(0)
 
-  // Optional: Outline variant
   &--outline
     background-color: transparent
     border: 2px solid currentColor

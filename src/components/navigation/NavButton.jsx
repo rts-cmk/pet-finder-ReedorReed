@@ -1,43 +1,55 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from '../../components/global/Button/Button';
 import Icon from '../../components/global/Icon';
 import './NavButton.sass';
+import { NavLink } from 'react-router';
 
 export default function NavButton() {
-	// Track the name of the active tab (default to 'home')
-	const [activeTab, setActiveTab] = useState('home');
-
 	return (
 		<div className="nav-buttons">
-			<Button
-				variant="secondary"
-				// If active, use filled icon, else use outline
-				icon={<Icon name={'homeOutline'} />}
-				onClick={() => setActiveTab('home')}
-				size="small"
-				active={activeTab === 'home'}
-			/>
-			<Button
-				variant="secondary"
-				icon={<Icon name={'messagesOutline'} />}
-				onClick={() => setActiveTab('messages')}
-				size="small"
-				active={activeTab === 'messages'}
-			/>
-			<Button
-				variant="secondary"
-				icon={<Icon name={'heartOutline'} />}
-				onClick={() => setActiveTab('heart')}
-				size="small"
-				active={activeTab === 'heart'}
-			/>
-			<Button
-				variant="secondary"
-				icon={<Icon name={'profileOutline'} />}
-				onClick={() => setActiveTab('profile')}
-				size="small"
-				active={activeTab === 'profile'}
-			/>
+			<NavLink to="/" end>
+				{({ isActive }) => (
+					<Button
+						variant="secondary"
+						icon={<Icon name={'homeOutline'} />}
+						size="small"
+						active={isActive}
+					/>
+				)}
+			</NavLink>
+
+			<NavLink to="/admin" end>
+				{({ isActive }) => (
+					<Button
+						variant="secondary"
+						icon={<Icon name={'messagesOutline'} />}
+						size="small"
+						active={isActive}
+					/>
+				)}
+			</NavLink>
+
+			<NavLink to="/favorites" end>
+				{({ isActive }) => (
+					<Button
+						variant="secondary"
+						icon={<Icon name={'heartOutline'} />}
+						size="small"
+						active={isActive}
+					/>
+				)}
+			</NavLink>
+
+			<NavLink to="/list" end>
+				{({ isActive }) => (
+					<Button
+						variant="secondary"
+						icon={<Icon name={'profileOutline'} />}
+						size="small"
+						active={isActive}
+					/>
+				)}
+			</NavLink>
 		</div>
 	);
 }

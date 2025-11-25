@@ -4,10 +4,32 @@
 #root
     display: flex
     flex-direction: column
-    padding: 20px
+    height: 100svh
 
 .container
     display: flex
     flex-direction: column
-    gap: 48px
-    padding: 10px
+    gap: 32px
+    padding: 20px 20px 90px 20px 
+    height: 100svh
+    overflow: hidden 
+
+    header, > div
+        flex-shrink: 0
+
+    article
+        flex: 1 
+        overflow-y: auto 
+        padding-bottom: 20px 
+        
+        
+        &::-webkit-scrollbar
+            display: none
+        -ms-overflow-style: none
+        scrollbar-width: none
+
+    
+    > :last-child
+        flex-shrink: 0
+        padding-bottom: 20px 
+

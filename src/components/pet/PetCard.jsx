@@ -5,10 +5,13 @@ import Badge from '../global/Badge/Badge';
 import { useLoaderData, useNavigate } from 'react-router';
 import './PetCard.sass';
 
-export default function PetCard() {
-	const { pets } = useLoaderData();
+// Accept 'pets' as a prop (renamed to propPets to avoid conflict)
+export default function PetCard({ pets: propPets }) {
+	const loaderData = useLoaderData();
 	const navigate = useNavigate();
 
+	// Use the prop if provided, otherwise use data from the loader
+	const pets = propPets || loaderData?.pets || [];
 
 	const [favorites, setFavorites] = useState(() => {
 		const saved = localStorage.getItem('favorites');
@@ -20,7 +23,7 @@ export default function PetCard() {
 	}, [favorites]);
 
 	function handleFavoriteClick(e, petId) {
-		e.stopPropagation(); 
+		e.stopPropagation();
 		setFavorites((prev) => ({
 			...prev,
 			[petId]: !prev[petId]
@@ -36,6 +39,7 @@ export default function PetCard() {
 			{pets.map((pet) => (
 				<div
 					key={pet.id}
+					category={pet.category}
 					className="pet-card"
 					onClick={() => handleCardClick(pet.id)}>
 					<figure className="pet-card__figure">
