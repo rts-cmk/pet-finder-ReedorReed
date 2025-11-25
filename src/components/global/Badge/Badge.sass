@@ -1,0 +1,96 @@
+@use '../../../styles/_variables' as var
+
+.badge
+  display: inline-flex
+  align-items: center
+  border-radius: 9999px
+  font-weight: 500
+  white-space: nowrap
+
+  // Icon wrapper
+  &__icon
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-shrink: 0
+
+  // Text wrapper
+  &__text
+    line-height: 1
+
+  // Size variants
+  &--sm
+    font-size: 12px
+    padding: 4px 8px
+    gap: 4px
+
+  &--md
+    font-size: 14px
+    padding: 6px 12px
+    gap: 6px
+
+  &--lg
+    font-size: 16px
+    padding: 8px 16px
+    gap: 8px
+
+  // Color variants - Using your Sass variables
+  
+  // Default - Tag button colors
+  &--default
+    background-color: var.$color-tag-button-background
+    color: var.$color-tag-button-text
+
+  // Primary - Main button colors
+  &--primary
+    background-color: var.$color-button-background
+    color: var.$color-button-text
+
+  // Secondary - Purple variant
+  &--secondary
+    background-color: #F5F5FA
+    color: var.$color-button-background
+
+  // Paw
+  &--icon
+    background-color: #F5F5FA
+    color: var.$color-icon-button-text
+
+  // gender
+  &--location
+    background-color: #F5F5FA
+    color: #828282
+
+
+  &--detail
+    background-color: #F5F5F9
+    padding: 0
+    gap: 16px
+    
+    .badge__icon
+      width: 40px
+      height: 40px
+      background-color: #F5F5F9
+      border-radius: 50%
+      box-shadow: 8px 8px 20px rgba(170, 170, 204, 1)
+      font-size: 24px // Controls icon size inside
+      
+    .badge__text
+      color: #4f4f4f
+      font-weight: 400
+      font-size: 15px
+
+  &--clickable
+    cursor: pointer
+    transition: transform 0.2s, opacity 0.2s
+
+    &:hover
+      transform: translateY(-1px)
+      opacity: 0.9
+
+    &:active
+      transform: translateY(0)
+
+  &--outline
+    background-color: transparent
+    border: 2px solid currentColor

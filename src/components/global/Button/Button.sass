@@ -1,0 +1,57 @@
+@use '../../../styles/_variables' as var
+    
+.button
+    display: inline-flex
+    align-items: center
+    justify-content: center
+    border: none
+    border-radius: 32px
+    font-weight: 600
+    cursor: pointer
+    transition: all 0.2s ease
+    font-family: 'Lato', inherit
+
+    // sizes
+    &--small
+        padding: 0.5rem 0.5rem
+        font-size: 0.875rem
+
+    &--medium
+        padding: 0.75rem 1.5rem
+        font-size: 1rem
+
+    &--large
+        padding: 0.8rem 2rem
+        font-size: 1rem
+
+    // variants
+    &--primary
+        background-color: var.$color-button-background
+        color: var.$color-button-text
+
+
+        
+    &--secondary
+        background-color: var.$color-nav-button-background
+        color: var.$color-nav-button-text-active
+
+    &--tertiary
+        background-color: var.$color-tag-button-background
+        color: var.$color-tag-button-text
+
+    //Modifiers
+    &--full-width
+            width: 100%
+
+    //Elements
+    &__icon
+        display: flex
+        align-items: center
+
+    &__label
+        display: inline-block
+
+
+    //     border-right: 2px solid rgba(255, 255, 255, 0.3);
+    //     border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    //     box-shadow: inset 8px 10px 10px -10px rgb(170, 170, 204)
