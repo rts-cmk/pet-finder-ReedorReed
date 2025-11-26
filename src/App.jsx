@@ -5,14 +5,15 @@ import Home from './pages/Home';
 import PetDetails from './pages/PetDetails';
 import Onboarding from './pages/Onboarding';
 import petDetailsLoader from './loaders/petDetailsLoader';
-import Admin from './pages/Admin';
+import AdminNew from './pages/Admin/AdminNew';
 import homeLoader from './loaders/homeLoader';
 import Favorites from './pages/Favorites';
-import Birds from './pages/Birds';
-import Cats from './pages/Cats';
-import Dogs from './pages/Dogs';
-import Other from './pages/Other';
-import List from './pages/List';
+import Birds from './pages/Tabs/Birds';
+import Cats from './pages/Tabs/Cats';
+import Dogs from './pages/Tabs/Dogs';
+import Other from './pages/Tabs/Other';
+import AdminEdit from './pages/Admin/AdminEdit';
+import AdminDelete from './pages/Admin/AdminDelete';
 
 function App() {
 	const browserRouter = createBrowserRouter([
@@ -34,7 +35,24 @@ function App() {
 		},
 		{
 			path: '/admin',
-			element: <Admin />
+			children: [
+				{
+					path: '/admin/new',
+					element: <AdminNew />
+				},
+				{
+					path: '/admin/edit/:petId',
+					element: <AdminEdit />,
+					loader: petDetailsLoader,
+					hydrateFallbackElement: <p>Loading...</p>
+				},
+				{
+					path: '/admin/delete/:petId',
+					element: <AdminDelete />,
+					loader: petDetailsLoader,
+					hydrateFallbackElement: <p>Loading...</p>
+				}
+			]
 		},
 		{
 			path: '/favorites',
@@ -57,12 +75,6 @@ function App() {
 		{
 			path: '/dogs',
 			element: <Dogs />,
-			loader: homeLoader,
-			hydrateFallbackElement: <p>Loading...</p>
-		},
-		{
-			path: '/list',
-			element: <List />,
 			loader: homeLoader,
 			hydrateFallbackElement: <p>Loading...</p>
 		},

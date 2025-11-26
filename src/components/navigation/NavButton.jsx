@@ -18,7 +18,7 @@ export default function NavButton() {
 				)}
 			</NavLink>
 
-			<NavLink to="/admin" end>
+			<NavLink to="/admin/new" end>
 				{({ isActive }) => (
 					<Button
 						variant="secondary"
@@ -40,7 +40,7 @@ export default function NavButton() {
 				)}
 			</NavLink>
 
-			<NavLink to="/list" end>
+			<NavLink to="/admin/edit/:petId" end>
 				{({ isActive }) => (
 					<Button
 						variant="secondary"

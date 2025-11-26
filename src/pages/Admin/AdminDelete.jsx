@@ -1,9 +1,15 @@
 import React from 'react';
-import NavBar from '../components/navigation/NavBar';
-import Button from '../components/global/Button/Button';
-import './Admin.sass';
+import NavBar from '../../components/navigation/NavBar';
+import Button from '../../components/global/Button/Button';
+import './AdminNew.sass';
+import { useLoaderData, useNavigate, useParams } from 'react-router';
 
-export default function Admin() {
+export default function AdminEdit() {
+	const { petId } = useParams();
+	const navigate = useNavigate();
+
+	const pet = useLoaderData();
+
 	const submitHandler = (event) => {
 		event.preventDefault();
 
@@ -23,23 +29,31 @@ export default function Admin() {
 
 		console.log(data);
 
-		fetch('http://localhost:4000/pets', {
-			method: 'POST',
+		fetch(`http://localhost:4000/pets/${petId}`, {
+			method: 'DELETE',
 			headers: {
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify(data)
-		}).then((response) => console.log('API response', response));
+		}).then((response) => {
+			console.log('API response', response);
+			if (response.ok) {
+				navigate('/');
+			}
+		});
 	};
 
 	return (
 		<div className="admin">
 			<main className="admin__main">
-				<h1>Admin page</h1>
+				<h1>Edit page</h1>
 				<form className="admin__form" method="post" onSubmit={submitHandler}>
 					<label className="admin__label">
 						<span>Category</span>
-						<select name="category" className="admin__input">
+						<select
+							name="category"
+							className="admin__input"
+							defaultValue={pet.category}>
 							<option value="dogs">Dogs</option>
 							<option value="cats">Cats</option>
 							<option value="birds">Birds</option>
@@ -54,6 +68,7 @@ export default function Admin() {
 							type="text"
 							className="admin__input"
 							placeholder="Enter breed"
+							defaultValue={pet.breed}
 						/>
 					</label>
 					<label className="admin__label">
@@ -65,11 +80,15 @@ export default function Admin() {
 							type="text"
 							className="admin__input"
 							placeholder="Enter image URL"
+							defaultValue={pet.image}
 						/>
 					</label>
 					<label className="admin__label">
 						<span>Gender</span>
-						<select name="gender" className="admin__input">
+						<select
+							name="gender"
+							className="admin__input"
+							defaultValue={pet.gender}>
 							<option value="female">Female</option>
 							<option value="male">Male</option>
 						</select>
@@ -81,6 +100,7 @@ export default function Admin() {
 							type="text"
 							className="admin__input"
 							placeholder="Enter location"
+							defaultValue={pet.location}
 						/>
 					</label>
 					<label className="admin__label">
@@ -90,6 +110,7 @@ export default function Admin() {
 							type="text"
 							className="admin__input"
 							placeholder="Enter short description"
+							defaultValue={pet.short_description}
 						/>
 					</label>
 					<label className="admin__label">
@@ -99,9 +120,10 @@ export default function Admin() {
 							type="text"
 							className="admin__input"
 							placeholder="Enter long description"
+							defaultValue={pet.long_description}
 						/>
 					</label>
-					<Button label="Add pet" type="submit" fullWidth size="large" />
+					<Button label="Delete pet" type="submit" fullWidth size="large" />
 				</form>
 			</main>
 			<NavBar />
